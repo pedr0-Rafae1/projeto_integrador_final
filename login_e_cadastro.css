@@ -1,0 +1,187 @@
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: Arial, sans-serif;
+  background-color: #f4f7f5;
+  color: #333;
+  line-height: 1.6;
+}
+
+
+header {
+  background-color: #2e7d32;
+  color: white;
+  padding: 20px;
+}
+
+.header-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+}
+
+.header-container a {
+  color: white;
+  text-decoration: none;
+  text-align: center;
+}
+
+.header-container .centro h1 {
+  font-size: 1.8rem;
+}
+
+
+nav.menu {
+  background-color: #388e3c;
+}
+
+nav.menu ul {
+  list-style: none;
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+nav.menu ul li {
+  position: relative;
+}
+
+nav.menu ul li a {
+  display: block;
+  padding: 12px 16px;
+  color: white;
+  text-decoration: none;
+}
+
+nav.menu ul li a:hover {
+  background-color: #66bb6a;
+}
+
+/* Submenu */
+nav.menu .submenu {
+  display: none;
+  position: absolute;
+  top: 100%;
+  left: 0;
+  background-color: #388e3c;
+  min-width: 200px;
+}
+
+nav.menu .dropdown:hover .submenu {
+  display: block;
+}
+
+nav.menu .submenu li a {
+  padding: 10px 16px;
+}
+
+main.card {
+  max-width: 600px;
+  margin: 40px auto;
+  padding: 30px;
+  background-color: #fff;
+  border-radius: 10px;
+  box-shadow: 0 0 10px rgba(0,0,0,0.1);
+}
+
+main.card h2 {
+  text-align: center;
+  margin-bottom: 20px;
+  color: #2e7d32;
+}
+
+/* Formulário */
+form {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+form label {
+  font-weight: bold;
+}
+
+form input,
+form select,
+form button {
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+}
+
+form input:focus,
+form select:focus {
+  outline: none;
+  border-color: #2e7d32;
+}
+
+fieldset.perfil {
+  border: 1px solid #ccc;
+  border-radius: 6px;
+  padding: 10px;
+}
+
+fieldset.perfil legend {
+  font-weight: bold;
+  color: #2e7d32;
+}
+
+fieldset.perfil label {
+  margin-right: 20px;
+}
+
+.card p{
+  text-align: center;
+}
+
+form button {
+  background-color: #2e7d32;
+  color: white;
+  font-weight: bold;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+form button:hover {
+  background-color: #1b5e20;
+}
+
+
+footer {
+  text-align: center;
+  padding: 20px 0;
+  background-color: #2e7d32;
+  color: white;
+  margin-top: 40px;
+}
+
+footer nav a{
+  text-decoration: none;
+  color: #ffff;
+}
+
+@media (max-width: 600px) {
+  .header-container {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  main.card {
+    margin: 20px;
+    padding: 20px;
+  }
+
+  nav.menu ul {
+    flex-direction: column;
+  }
+
+  form {
+    gap: 10px;
+  }
+}

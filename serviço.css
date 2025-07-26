@@ -1,0 +1,107 @@
+:root {
+      --verde-escuro: #1b5e20;
+      --verde: #2e7d32;
+      --verde-claro: #a5d6a7;
+      --cinza-claro: #f1f8e9;
+      --branco: #ffffff;
+      --sombra: 0 0 10px rgba(0, 0, 0, 0.1);
+      font-size: 16px;
+    }
+
+    * {
+      box-sizing: border-box;
+      padding: 0;
+      margin: 0;
+      font-family: "Montserrat", sans-serif;
+    }
+
+    body {
+      background: var(--cinza-claro);
+      color: #333;
+      line-height: 1.6;
+    }
+
+    header {
+      background: var(--verde);
+      padding: 1rem 2rem;
+      text-align: center;
+      color: var(--branco);
+    }
+
+    h1 {
+      font-size: 1.75rem;
+      font-weight: 600;
+    }
+
+    main {
+      max-width: 900px;
+      margin: 2rem auto;
+      padding: 0 1rem;
+    }
+
+    .card {
+      background-color: white;
+  padding: 30px;
+  margin: 20px auto;
+  border-radius: 10px;
+  max-width: 800px;
+  box-shadow: 0 0 10px rgba(0,0,0,0.1);
+    }
+
+    form {
+      display: grid;
+      gap: 1rem;
+    }
+
+    label {
+      font-weight: 600;
+      color: var(--sombra);
+    }
+
+    input,
+    select,
+    button {
+      padding: 0.5rem 0.75rem;
+      border: 1px solid #ccc;
+      border-radius: 6px;
+      font-size: 1rem;
+    }
+
+    button {
+      background: var(--verde);
+      color: var(--branco);
+      border: none;
+      cursor: pointer;
+      transition: background 0.2s ease;
+    }
+
+    button:hover {
+      background: var(--verde-escuro);
+    }
+
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      margin-top: 1rem;
+    }
+
+    th,
+    td {
+      padding: 0.6rem;
+      text-align: left;
+      border-bottom: 1px solid #eee;
+    }
+
+    th {
+      background: var(--verde-claro);
+      color: var(--verde-escuro);
+    }
+
+    #msg {
+      margin-top: 1rem;
+      font-weight: 600;
+    }
+
+    canvas {
+      max-width: 100%;
+    }

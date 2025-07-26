@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>duvidas sobre o site Pecuaria em Rede</title>
+    <link rel="stylesheet" href="percuaria.css">
+</head>
+<body>
+
+<header>
+        <div class="header-container">
+            <div class="centro">
+                <a href="home.html">
+                    <h1>Pecuária em Rede</h1>
+                </a>
+            </div>
+            <div class="direita">
+                <div class = "direita" >
+                <a href="login.html">Login</a>
+                <a href="cadastro.html">Cadastra-se</a>
+            </div>
+            </div>
+        </div>
+
+    
+    <nav class="menu">
+      <ul>
+        <li><a href="home.html">Início</a></li>
+        <li><a href="Quem_nos_somos.html">Quem Somos</a></li>
+        <li><a href="duvidas.html">Dúvidas</a></li>
+        <li class="dropdown">
+          <a href="#">Serviços</a>
+          <ul class="submenu">
+            <li><a href="registro_vacinação.html">Registro de Vacinação</a></li>
+            <li><a href="controle_de_peso.html">Controle de Peso</a></li>
+            <li><a href="avaliação_venda_e_abate.html">Avaliação para Venda e Abate</a></li>
+          </ul>
+        </li>
+      </ul>
+    </nav>
+</header>
+
+      <section id="duvidas frequentes" class="card">
+      <div class="pergunta-container">
+        <h3>Dúvidas Frequentes</h3>
+        <p>Aqui estão as dúvidas frequentes sobre o funcionamento do site </p>
+      </div>
+
+      <div class="pergunta">
+        <button class="acordeao"> O que é o Projeto Pecuária em Rede?</button>
+      <div class="resposta" >
+        <p>O projeto visa digitalizar e melhorar o controle da criação de animais no Agreste, usando tecnologia para registrar peso, vacinação e auxiliar na decisão de venda ou abate.</p>
+      </div>
+      </div>
+
+      <div class="pergunta">
+        <button class="acordeao">Com que frequência devo pesar os animais?</button>
+      <div class="resposta">
+        <p>Recomenda-se pesar os animais a cada 15 dias para um acompanhamento mais preciso da evolução do peso.</p>
+      </div>
+      </div>
+
+      <div class="pergunta">
+        <button class="acordeao">O que acontece se o animal estiver perdendo peso?</button>
+        <div class="resposta">
+        <p>O sistema mostra um alerta, sugerindo avaliação da alimentação, uso de suplemento ou consulta veterinária.</p>
+        </div>
+      </div>
+
+      <div class="pergunta">
+        <button class="acordeao">Quando um animal está pronto para venda ou abate?</button>
+        <div class="resposta">
+        <p>Quando o peso atingir o valor ideal (geralmente 450 kg ou mais), o sistema sinaliza que ele está apto para venda ou abate.</p>
+
+      </div>
+
+      <div class="pergunta">
+        <button class="acordeao">O sistema envia alertas sobre vacinação?</button>
+        <div class="resposta">
+        <p>É possível registrar datas de vacinação, mas o sistema ainda não pode avisar quando estiver chegando a próxima dose</p>
+        </div>
+      </div>
+
+      <div class="pergunta">
+        <Button class="acordeao">Posso usar o sistema sem internet?</Button>
+        <div class="resposta">
+        <p>Atualmente, o sistema precisa de conexão com a internet para salvar e sincronizar os dados.</p>
+        </div>
+      </div>
+
+      <div class="pergunta">
+        <button class="acordeao"> É possível gerar relatórios ou gráficos?</button>
+        <div class="resposta">
+        <p>Sim. em serviço, acessando controle de peso a uma área de gráficos mostra a evolução do peso dos animais, facilitando a análise e a tomada de decisão.</p>
+        </div>
+      </div>
+
+      <div class="pergunta">
+        <button class="acordeao">O que fazer se o animal não estiver ganhando peso?</button>
+        <div class="resposta">
+        <p>O sistema recomendará ajustes, como o uso de suplemento alimentar, sombra, água de qualidade ou nova avaliação do pasto.</p>
+        </div>
+      </div>
+      
+      <div class="pergunta">
+        <button class="acordeao">Os dados ficam salvos por quanto tempo?</button>
+        <div class="resposta">
+        <p>Todos os registros ficam armazenados enquanto o sistema estiver em uso. Assim, o produtor pode acompanhar o histórico completo de cada animal.</p>
+        </div>
+      </div>
+      </section>
+
+      <script>
+  const botoes = document.querySelectorAll(".acordeao");
+  botoes.forEach(botao => {
+    botao.addEventListener("click", () => {
+      botao.classList.toggle("ativo");
+      const resposta = botao.nextElementSibling;
+      resposta.style.display = resposta.style.display === "block" ? "none" : "block";
+    });
+  });
+</script>
+
+<footer class="footer">
+    <div class="container">
+      <nav>
+        <a href="home.html">Home</a> |
+        <a href="Quem_nos_somos.html">Quem Somos</a> |
+        <a href="duvidas.html">duvidas</a>
+      </nav>
+      <p>&copy; 2025 Pecuária em Rede. Todos os direitos reservados.</p>
+    </div>
+  </footer>
+
+</body>
+</html>

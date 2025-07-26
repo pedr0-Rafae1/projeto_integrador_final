@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Registro de Vacinação Pecuária em Rede</title>
+  <link rel="stylesheet" href="percuaria.css" />
+  <link rel="stylesheet" href="serviço.css">
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body>
+  
+  <header>
+    <div class="header-container">
+      <div class="centro">
+        <a href="home.html"><h1>Pecuária em Rede</h1></a>
+      </div>
+      <div class="direita">
+         <div class="direita">
+            <a href="login.html">Login</a>
+            <a href="cadastro.html">Cadastre-se</a>
+          </div>
+      </div>
+    </div>
+
+     <nav class="menu">
+      <ul>
+        <li><a href="home.html">Início</a></li>
+        <li><a href="Quem_nos_somos.html">Quem Somos</a></li>
+        <li><a href="duvidas.html">Dúvidas</a></li>
+        <li class="dropdown">
+          <a href="#">Serviços</a>
+          <ul class="submenu">
+            <li><a href="registro_vacinação.html">Registro de Vacinação</a></li>
+            <li><a href="controle_de_peso.html">Controle de Peso</a></li>
+            <li><a href="avaliação_venda_e_abate.html">Avaliação para Venda e Abate</a></li>
+          </ul>
+        </li>
+      </ul>
+    </nav>
+  </header>
+
+  <main class="card">
+    <div class="container">
+
+      <h2>Registro de Vacinação</h2>
+      <p>Aqui você pode registrar as vacinas aplicadas no rebanho, com data, responsável e observações. Isso garante um histórico sanitário completo de cada animal.</p>
+
+      <br>
+
+      <form id="form-vacinacao">
+
+        <label for="vacina">Vacina:</label>
+        <input type="text" id="vacina" required />
+
+        <label for="data_aplicacao">Data de Aplicação:</label>
+        <input type="date" id="data_aplicacao" required />
+
+        <label for="reacao">Reação:</label>
+        <input type="text" id="reacao" />
+
+        <label for="aplicador">Quem Aplicou:</label>
+        <input type="text" id="aplicador" />
+
+        <label for="motivo_aplicacao">Motivo da Aplicação:</label>
+        <input type="text" id="motivo_aplicacao" />
+
+        
+        <button type="submit">Registrar Vacina</button>
+      </form>
+    </div>
+  </main>
+
+  
+  <section class="card">
+    <h2>Histórico de Vacinas</h2>
+    <table id="tabela-vacinacao" width="100%" border="1">
+      <thead>
+        <tr>
+          <th>Vacina</th>
+          <th>Data</th>
+          <th>Reação</th>
+          <th>Aplicador</th>
+          <th>Motivo</th>
+        </tr>
+      </thead>
+      <tbody></tbody>
+    </table>
+  </section>
+
+  <footer class="footer">
+    <div class="container">
+      <nav>
+        <a href="home.html">Home</a> |
+        <a href="Quem_nos_somos.html">Quem Somos</a> |
+        <a href="duvidas.html">duvidas</a>
+      </nav>
+      <p>&copy; 2025 Pecuária em Rede. Todos os direitos reservados.</p>
+    </div>
+  </footer>
+
+</body>
+</html>

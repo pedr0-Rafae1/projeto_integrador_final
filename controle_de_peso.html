@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Controle de Peso Pecuária em Rede</title>
+  <link rel="stylesheet" href="percuaria.css">
+  <link rel="stylesheet" href="serviço.css">
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+</head>
+<body>
+  
+  <header>
+    <div class="header-container">
+      <div class="centro">
+        <a href="home.html"><h1>Pecuária em Rede</h1></a>
+      </div>
+      <div class="direita">
+         <div class="direita">
+            <a href="login.html">Login</a>
+            <a href="cadastro.html">Cadastre-se</a>
+          </div>
+      </div>
+    </div>
+
+     <nav class="menu">
+      <ul>
+        <li><a href="home.html">Início</a></li>
+        <li><a href="Quem_nos_somos.html">Quem Somos</a></li>
+        <li><a href="duvidas.html">Dúvidas</a></li>
+        <li class="dropdown">
+          <a href="#">Serviços</a>
+          <ul class="submenu">
+            <li><a href="registro_vacinação.html">Registro de Vacinação</a></li>
+            <li><a href="controle_de_peso.html">Controle de Peso</a></li>
+            <li><a href="avaliação_venda_e_abate.html">Avaliação para Venda e Abate</a></li>
+          </ul>
+        </li>
+      </ul>
+    </nav>
+  </header>
+
+  <main class="card">
+    <h2>Controle de Peso</h2>
+    <p>Registre os dados de pesagem para acompanhar a evolução dos animais e avaliar se estão prontos para venda ou abate.</p>
+
+    <form id="form-peso">
+      <label for="nome">Nome do Animal:</label>
+      <input type="text" id="nome" required>
+
+      <label for="data">Data da Pesagem:</label>
+      <input type="date" id="data" required>
+
+      <label for="peso">Peso Atual (kg):</label>
+      <input type="number" id="peso" step="0.1" required>
+
+      <label for="pesopassado">Peso Anterior (kg):</label>
+      <input type="number" id="pesopassado" step="0.1" required>
+
+      <button type="submit">Avaliar Peso</button>
+    </form>
+
+    <div id="resultado" class="info" style="margin-top: 20px;"></div>
+  </main>
+
+  <section class="card">
+    <h3>Histórico de Pesagens</h3>
+    <table id="tabela-peso" border="1" width="100%">
+      <thead>
+        <tr>
+          <th>Animal</th>
+          <th>Data</th>
+          <th>Peso</th>
+          <th>Diferença</th>
+          <th>Avaliação</th>
+        </tr>
+      </thead>
+      <tbody></tbody>
+    </table>
+  </section>
+
+  <section class="card">
+    <h3>Gráfico de Evolução de Peso</h3>
+    <canvas id="graficoPeso" width="600" height="300"></canvas>
+  </section>
+
+  <script>
+    const ctx = document.getElementById("graficoPeso").getContext("2d");
+    const grafico = new Chart(ctx, {
+      type: "line",
+      data: {
+        labels: [],
+        datasets: [{
+          label: "Peso (kg)",
+          data: [],
+          borderColor: "#2e7d32",
+          fill: false,
+          tension: 0.2
+        }]
+      },
+      options: {
+        responsive: true,
+        scales: {
+          y: { beginAtZero: false }
+        }
+      }
+    });
+
+    document.getElementById("form-peso").addEventListener("submit", function(e) {
+      e.preventDefault();
+
+      const nome = document.getElementById("nome").value;
+      const data = document.getElementById("data").value;
+      const peso = parseFloat(document.getElementById("peso").value);
+      const pesoAnterior = parseFloat(document.getElementById("pesopassado").value);
+      const diferenca = peso - pesoAnterior;
+
+       let mensagem = `<strong>${nome}</strong> (${data})<br>Peso atual: ${peso.toFixed(1)} kg<br>`;
+
+      if (diferenca > 0) {
+        mensagem += `Ganhou ${diferenca.toFixed(1)} kg.`;
+        if (diferenca < 2) mensagem += " Ganho abaixo do ideal.";
+      } else if (diferenca < 0) {
+        mensagem += `Perdeu ${Math.abs(diferenca).toFixed(1)} kg.`;
+      } else {
+        mensagem += `Peso estável.`;
+      }
+
+      if (peso >= 450) mensagem += "<br> Pronto para venda ou abate.";
+
+      document.getElementById("resultado").innerHTML = mensagem;
+
+      
+      const tabela = document.querySelector("#tabela-peso tbody");
+      const linha = tabela.insertRow();
+      linha.innerHTML = `<td>${nome}</td><td>${data}</td><td>${peso.toFixed(1)} kg</td><td>${diferenca.toFixed(1)} kg</td><td>${mensagem.replace(/<[^>]+>/g, '')}</td>`;
+
+      
+      grafico.data.labels.push(data);
+      grafico.data.datasets[0].data.push(peso);
+      grafico.update();
+
+      this.reset();
+    });
+  </script>
+
+  <footer class="footer">
+    <div class="container">
+      <nav>
+        <a href="home.html">Home</a> |
+        <a href="Quem_nos_somos.html">Quem Somos</a> |
+        <a href="duvidas.html">duvidas</a>
+      </nav>
+      <p>&copy; 2025 Pecuária em Rede. Todos os direitos reservados.</p>
+    </div>
+  </footer>
+
+</body>
+</html>

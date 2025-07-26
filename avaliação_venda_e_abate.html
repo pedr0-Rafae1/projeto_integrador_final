@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>avaliação de venda e abate </title>
+    <link rel="stylesheet" href="percuaria.css">
+    <link rel="stylesheet" href="serviço.css">
+</head>
+<body>
+
+ <header>
+    <div class="header-container">
+      <div class="centro">
+        <a href="home.html"><h1>Pecuária em Rede</h1></a>
+      </div>
+      <div class="direita">
+         <div class="direita">
+            <a href="login.html">Login</a>
+            <a href="cadastro.html">Cadastre-se</a>
+          </div>
+      </div>
+    </div>
+
+     <nav class="menu">
+      <ul>
+        <li><a href="home.html">Início</a></li>
+        <li><a href="Quem_nos_somos.html">Quem Somos</a></li>
+        <li><a href="duvidas.html">Dúvidas</a></li>
+        <li class="dropdown">
+          <a href="#">Serviços</a>
+          <ul class="submenu">
+            <li><a href="registro_vacinação.html">Registro de Vacinação</a></li>
+            <li><a href="controle_de_peso.html">Controle de Peso</a></li>
+            <li><a href="avaliação_venda_e_abate.html">Avaliação para Venda e Abate</a></li>
+          </ul>
+        </li>
+      </ul>
+    </nav>
+  </header>
+
+  <section class="card">
+    <h2>Avaliação de Venda e Abate</h2>
+    <p>Utilize esta ferramenta para verificar se um animal está apto à venda ou abate, considerando peso, idade, raça e finalidade da criação.</p>
+    <br>
+    <form id="form-avaliacao">
+      <label for="nome">Nome do Animal:</label>
+      <input type="text" id="nome" required>
+
+      <label for="idade">Idade (meses):</label>
+      <input type="number" id="idade" required>
+
+      <label for="peso">Peso (kg):</label>
+      <input type="number" id="peso" required>
+
+      <label for="raca">Raça:</label>
+      <input type="text" id="raca" required>
+
+      <label for="finalidade">Finalidade:</label>
+      <select id="finalidade" required>
+        <option value="">Selecione</option>
+        <option value="carne">Carne</option>
+        <option value="leite">Leite</option>
+        <option value="reproducao">Reprodução</option>
+      </select>
+
+      <button type="submit">Avaliar</button>
+    </form>
+
+    <div id="resultado" class="info"></div>
+  </section>
+
+  <section class="card">
+    <h3>Histórico de Avaliações</h3>
+    <table border="1" width="100%" id="tabela-avaliacoes">
+      <thead>
+        <tr>
+          <th>Nome</th>
+          <th>Peso</th>
+          <th>Idade</th>
+          <th>Finalidade</th>
+          <th>Status</th>
+        </tr>
+      </thead>
+      <tbody></tbody>
+    </table>
+  </section>
+
+  <script>
+    document.getElementById('form-avaliacao').addEventListener('submit', function (e) {
+      e.preventDefault();
+      const nome = document.getElementById('nome').value;
+      const idade = parseInt(document.getElementById('idade').value);
+      const peso = parseFloat(document.getElementById('peso').value);
+      const raca = document.getElementById('raca').value;
+      const finalidade = document.getElementById('finalidade').value;
+
+      let status = '';
+
+      if (finalidade === 'carne') {
+        status = (peso >= 450 && idade >= 18)
+          ? 'Pronto para abate'
+          : 'Aguardando condições ideais';
+      } else if (finalidade === 'leite') {
+        status = (idade >= 24)
+          ? 'Pronto para produção de leite'
+          : 'Aguardando idade ideal para produção';
+      } else if (finalidade === 'reproducao') {
+        status = (idade >= 30)
+          ? 'Pronto para reprodução'
+          : 'Ainda não está pronto para reprodução';
+      } else {
+        status = 'Finalidade não definida';
+      }
+
+      document.getElementById('resultado').innerHTML = `<p><strong>${nome}</strong> (${raca})<br>Peso: ${peso}kg | Idade: ${idade} meses<br>Status: ${status}</p>`;
+
+      const tabela = document.querySelector('#tabela-avaliacoes tbody');
+      const linha = tabela.insertRow();
+      linha.innerHTML = `<td>${nome}</td><td>${peso}</td><td>${idade}</td><td>${finalidade}</td><td>${status}</td>`;
+
+      this.reset();
+    });
+  </script>
+
+  <footer class="footer">
+    <div class="container">
+      <nav>
+        <a href="home.html">Home</a> |
+        <a href="Quem_nos_somos.html">Quem Somos</a> |
+        <a href="duvidas.html">duvidas</a>
+      </nav>
+      <p>&copy; 2025 Pecuária em Rede. Todos os direitos reservados.</p>
+    </div>
+  </footer>
+  
+</body>
+</html>
